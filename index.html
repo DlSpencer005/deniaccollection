@@ -3,20 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Deniac Collections</title>
+    <title>Deniac Collection | Handcrafted Luxury Footwear</title>
+    <meta name="description" content="Deniac Collection — handcrafted luxury footwear designed with precision, premium leather and timeless elegance. Shop loafers, oxfords, boots and sneakers.">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect"
-    href="https://fonts.gstatic.com"
-    crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap"
-    rel="stylesheet">
-    <link
-    rel="stylesheet"
-    href="https://unpkg.com/aos@2.3.4/dist/aos.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
 </head>
 <body>
     <header>
@@ -27,7 +21,7 @@
 
         <div class="logo">
 
-            <a href="#" id="logo">
+            <a href="index.html" id="logo">
 
                 <img src="./images/logo.png" alt="Deniac Collection">
 
@@ -39,26 +33,69 @@
 
         <ul class="nav-links" id="navLinks">
 
-            <li><a href="#" class="active">Home</a></li>
+            <li><a href="index.html" class="active">Home</a></li>
+
             <li class="dropdown">
-                <a href="#collections">
+
+                <a href="shop.html">
                     Collections
                 <i class="fa-solid fa-chevron-down"></i>
                 </a>
 
             <ul class="dropdown-menu">
-                <li><a href="#">Loafers</a></li>
-                <li><a href="#">Oxfords</a></li>
-                <li><a href="#">Chelsea Boots</a></li>
-                <li><a href="#">Slippers</a></li>
-                <li><a href="#">New Arrivals</a></li>
-                <li><a href="#">Best Sellers</a></li>
+
+                <li><a href="shop.html?category=Loafers">Loafers</a></li>
+                <li><a href="shop.html?category=Oxford">Oxfords</a></li>
+                <li><a href="shop.html?category=Boots">Chelsea Boots</a></li>
+                <li><a href="shop.html?category=Sneakers">Sneakers</a></li>
+                <li><a href="shop.html">New Arrivals</a></li>
+                <li><a href="shop.html">Best Sellers</a></li>
+
             </ul>
 
             </li>
+
             <li><a href="#craftsss">Craftsmanship</a></li>
+
             <li><a href="#about">About</a></li>
+
             <li><a href="#contact">Contact</a></li>
+
+            <li class="nav-mobile-actions">
+
+                <div class="nav-icons">
+
+                    <div class="icon-wrap">
+
+                        <i class="fa-solid fa-magnifying-glass search-open"></i>
+
+                    </div>
+
+                    <div class="icon-wrap">
+
+                        <i class="fa-regular fa-heart wishlist-nav"></i>
+
+                        <span class="icon-badge wishlist-count">0</span>
+
+                    </div>
+
+                    <div class="icon-wrap">
+
+                        <i class="fa-solid fa-cart-shopping cart-open"></i>
+
+                        <span class="icon-badge cart-count">0</span>
+
+                    </div>
+
+                </div>
+
+                <a href="shop.html" class="nav-btn">
+
+                    Shop Now
+
+                </a>
+
+            </li>
 
         </ul>
 
@@ -68,13 +105,31 @@
 
             <div class="nav-icons">
 
-                <i class="fa-solid fa-magnifying-glass"></i>
-                <i class="fa-regular fa-heart"></i>
-                <i class="fa-solid fa-cart-shopping" id="cartBtn"></i>
+                <div class="icon-wrap">
+
+                    <i class="fa-solid fa-magnifying-glass search-open" id="searchBtn"></i>
+
+                </div>
+
+                <div class="icon-wrap">
+
+                    <i class="fa-regular fa-heart wishlist-nav" id="wishlistNavBtn"></i>
+
+                    <span class="icon-badge wishlist-count" id="wishlistCount">0</span>
+
+                </div>
+
+                <div class="icon-wrap">
+
+                    <i class="fa-solid fa-cart-shopping cart-open" id="cartBtn"></i>
+
+                    <span class="icon-badge cart-count" id="cartCount">0</span>
+
+                </div>
 
             </div>
 
-            <a href="#" class="nav-btn">
+            <a href="shop.html" class="nav-btn">
 
                 Shop Now
 
@@ -94,7 +149,7 @@
 
 </header>
 
-   <!-- ================= HERO SECTION ================= -->
+    <!-- ================= HERO SECTION ================= -->
 
 <section class="hero">
     <h1 class="bg-text">
@@ -131,7 +186,7 @@
 
             <div class="hero-buttons">
 
-                <a href="#collections" class="btn-primary">
+                <a href="shop.html" class="btn-primary">
 
                     Explore Collection
 
@@ -144,7 +199,7 @@
                 </a>
 
             </div>
-        
+
             <div class="hero-features">
 
                 <div>
@@ -200,7 +255,7 @@
 
     <!-- Scroll Indicator -->
 
-    <a href="#best-sellers" class="scroll-indicator">
+    <a href="#craftsss" class="scroll-indicator">
 
         <span>Scroll</span>
 
@@ -253,7 +308,7 @@
 
         </div>
 
-        <a href="#" class="craft-btn">Discover Our Story</a>
+        <a href="shop.html" class="craft-btn">Discover Our Collection</a>
 
     </div>
 
@@ -261,7 +316,7 @@
 
 <div class="section-divider"></div>
 
-<section class="collections" data-aos="fade-up">
+<section class="collections" data-aos="fade-up" id="collections">
 
     <div class="section-heading">
 
@@ -288,7 +343,7 @@
 
                 <p>Elegant slip-ons for effortless sophistication.</p>
 
-                <a href="#">Explore Collection →</a>
+                <a href="shop.html?category=Loafers">Explore Collection →</a>
 
             </div>
 
@@ -304,7 +359,7 @@
 
                 <p>Classic handcrafted shoes for formal occasions.</p>
 
-                <a href="#">Explore Collection →</a>
+                <a href="shop.html?category=Oxford">Explore Collection →</a>
 
             </div>
 
@@ -320,7 +375,7 @@
 
                 <p>Modern versatility with timeless craftsmanship.</p>
 
-                <a href="#">Explore Collection →</a>
+                <a href="shop.html?category=Boots">Explore Collection →</a>
 
             </div>
 
@@ -336,7 +391,7 @@
 
                 <p>Luxury comfort designed for everyday style.</p>
 
-                <a href="#">Explore Collection →</a>
+                <a href="shop.html?category=Sneakers">Explore Collection →</a>
 
             </div>
 
@@ -481,7 +536,7 @@
             elegance and built for the modern gentleman.
         </p>
 
-        <a href="#" class="featured-btn">
+        <a href="shop.html" class="featured-btn">
             Explore Collection
         </a>
 
@@ -568,6 +623,7 @@
                 <span>Entrepreneur • Port Harcourt</span>
 
             </div>
+
             <div class="testimonial">
 
                 <div class="stars">
@@ -586,6 +642,7 @@
                 <span>Software Engineer • Lagos</span>
 
             </div>
+
             <div class="testimonial">
 
                 <div class="stars">
@@ -631,7 +688,7 @@
         <span class="dot"></span>
 
         <span class="dot"></span>
-        
+
         <span class="dot"></span>
 
     </div>
@@ -670,6 +727,134 @@
 
 <div class="section-divider"></div>
 
+<section class="about-section" id="about" data-aos="fade-up">
+
+    <div class="about-grid">
+
+        <div class="about-image" data-aos="fade-right">
+
+            <img src="./images/Collections/adenibi_dennis_6904359daa4f43bab72ac9439392fc8b.jpg" alt="The Deniac Collection story">
+
+        </div>
+
+        <div class="about-content" data-aos="fade-left">
+
+            <span>OUR STORY</span>
+
+            <h2>The Deniac Difference</h2>
+
+            <p>
+                Born in Lagos and worn by gentlemen across Nigeria,
+                Deniac Collection was founded on a simple belief:
+                luxury should be handcrafted, comfortable and made to last.
+                From the first cut of leather to the final polish,
+                every pair carries the patience and pride of our artisans.
+            </p>
+
+            <div class="about-features">
+
+                <div><i class="fa-solid fa-check"></i> Authentic handcrafted construction</div>
+                <div><i class="fa-solid fa-check"></i> Premium full-grain leather</div>
+                <div><i class="fa-solid fa-check"></i> Timeless, versatile silhouettes</div>
+                <div><i class="fa-solid fa-check"></i> Made for comfort, built to last</div>
+
+            </div>
+
+            <a href="shop.html" class="craft-btn">Shop the Collection</a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<div class="section-divider"></div>
+
+<section class="contact-section" id="contact" data-aos="fade-up">
+
+    <div class="section-heading">
+
+        <span>GET IN TOUCH</span>
+
+        <h2>Contact Us</h2>
+
+        <p>
+            Questions about an order, sizing or custom requests?
+            Send us a message — we would love to hear from you.
+        </p>
+
+    </div>
+
+    <div class="contact-grid">
+
+        <div class="contact-info">
+
+            <div class="contact-item">
+
+                <i class="fa-solid fa-location-dot"></i>
+
+                <div>
+                    <h4>Address</h4>
+                    <p>Lagos, Nigeria</p>
+                </div>
+
+            </div>
+
+            <div class="contact-item">
+
+                <i class="fa-solid fa-phone"></i>
+
+                <div>
+                    <h4>Phone / WhatsApp</h4>
+                    <p>+234 813 024 7501</p>
+                </div>
+
+            </div>
+
+            <div class="contact-item">
+
+                <i class="fa-solid fa-envelope"></i>
+
+                <div>
+                    <h4>Email</h4>
+                    <p>deniac519@gmail.com</p>
+                </div>
+
+            </div>
+
+            <div class="contact-item">
+
+                <i class="fa-solid fa-clock"></i>
+
+                <div>
+                    <h4>Working Hours</h4>
+                    <p>Mon – Sat | 9:00 AM – 6:00 PM</p>
+                </div>
+
+            </div>
+
+        </div>
+
+        <form class="contact-form" id="contactForm">
+
+            <input type="text" name="name" placeholder="Your Name" required>
+
+            <input type="email" name="email" placeholder="Email Address" required>
+
+            <input type="tel" name="phone" placeholder="Phone Number">
+
+            <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+
+            <button type="submit">Send Message</button>
+
+        </form>
+
+    </div>
+
+</section>
+
+<div class="section-divider"></div>
+
 <section class="newsletter">
 
     <span>NEWSLETTER</span>
@@ -683,19 +868,23 @@
 
     </p>
 
-    <form>
+    <form id="newsletterForm">
 
         <input
         type="email"
-        placeholder="Enter your email address">
+        class="newsletter-email"
+        placeholder="Enter your email address"
+        required>
 
-        <button>
+        <button type="submit">
 
             Subscribe
 
         </button>
 
     </form>
+
+    <p class="newsletter-msg" role="status"></p>
 
 </section>
 
@@ -730,13 +919,10 @@
 
             <h3>Shop</h3>
 
-            <a href="#">Loafers</a>
-
-            <a href="#">Oxfords</a>
-
-            <a href="#">Chelsea Boots</a>
-
-            <a href="#">Sneakers</a>
+            <a href="shop.html?category=Loafers">Loafers</a>
+            <a href="shop.html?category=Oxford">Oxfords</a>
+            <a href="shop.html?category=Boots">Chelsea Boots</a>
+            <a href="shop.html?category=Sneakers">Sneakers</a>
 
         </div>
 
@@ -744,13 +930,10 @@
 
             <h3>Company</h3>
 
-            <a href="#">About Us</a>
-
-            <a href="#">Craftsmanship</a>
-
-            <a href="#">Our Story</a>
-
-            <a href="#">Contact</a>
+            <a href="#about">About Us</a>
+            <a href="#craftsss">Craftsmanship</a>
+            <a href="shop.html">Our Collection</a>
+            <a href="#contact">Contact</a>
 
         </div>
 
@@ -758,13 +941,10 @@
 
             <h3>Support</h3>
 
-            <a href="#">FAQs</a>
-
-            <a href="#">Delivery</a>
-
-            <a href="#">Returns</a>
-
-            <a href="#">Privacy Policy</a>
+            <a href="cart.html">View Cart</a>
+            <a href="#contact">Delivery</a>
+            <a href="#contact">Returns</a>
+            <a href="#contact">Privacy Policy</a>
 
         </div>
 
@@ -787,7 +967,7 @@
     <div class="footer-bottom">
 
         <p>
-            © 2026 Deniac Collection. All Rights Reserved.
+            © 2026 <a href="https://wa.me/08130247501" target="_blank" class="footer-name">Spencer</a>. All Rights Reserved.
         </p>
 
     </div>
@@ -816,29 +996,7 @@
 
     <div class="cart-items">
 
-        <div class="cart-item">
-
-            <img src="./images/signatute images/ahmedhamdibey_20211103_21.png" alt="Shoe">
-
-            <div class="cart-details">
-
-                <h4>Classic Leather Oxford</h4>
-
-                <p>₦50,000</p>
-
-                <div class="quantity">
-
-                    <button>-</button>
-
-                    <span>1</span>
-
-                    <button>+</button>
-
-                </div>
-
-            </div>
-
-        </div>
+        <p class="cart-empty">Your cart is empty.</p>
 
     </div>
 
@@ -848,7 +1006,7 @@
 
             <span>Subtotal</span>
 
-            <strong>₦50,000</strong>
+            <strong>₦0</strong>
 
         </div>
 
@@ -869,18 +1027,76 @@
 </aside>
 
 <script src="script.js"></script>
-<script src="https://unpkg.com/aos@2.3.4/dist/aos.js">
-</script>
+<script src="./javascript/products.js"></script>
+<script src="./javascript/filter.js"></script>
+<script src="./javascript/render.js"></script>
+<script src="./javascript/carts.js"></script>
+<script src="./javascript/wishlist.js"></script>
+<script src="./javascript/search.js"></script>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 
 <script>
 
 AOS.init({
+    duration: 1000,
+    once: true,
+    offset: 100
+});
 
-duration:1000,
+// newsletter
+document.addEventListener("DOMContentLoaded", () => {
 
-once:true,
+    const newsletterForm = document.getElementById("newsletterForm");
 
-offset:100
+    if (newsletterForm) {
+
+        newsletterForm.addEventListener("submit", (e) => {
+
+            e.preventDefault();
+
+            const msg = document.querySelector(".newsletter-msg");
+
+            if (msg) {
+
+                msg.textContent = `Thank you for subscribing! You're now on the list.`;
+
+                msg.classList.add("show");
+
+            }
+
+            newsletterForm.reset();
+
+        });
+
+    }
+
+    // contact form -> WhatsApp
+    const contactForm = document.getElementById("contactForm");
+
+    if (contactForm) {
+
+        contactForm.addEventListener("submit", (e) => {
+
+            e.preventDefault();
+
+            const name = contactForm.querySelector('[name="name"]').value.trim();
+            const email = contactForm.querySelector('[name="email"]').value.trim();
+            const phone = contactForm.querySelector('[name="phone"]').value.trim();
+            const message = contactForm.querySelector('[name="message"]').value.trim();
+
+            const text = `Hello Deniac Collection,%0A%0A` +
+                `Name: ${encodeURIComponent(name)}%0A` +
+                `Email: ${encodeURIComponent(email)}%0A` +
+                (phone ? `Phone: ${encodeURIComponent(phone)}%0A` : "") +
+                `%0AMessage: ${encodeURIComponent(message)}`;
+
+            window.open(`https://wa.me/2348130247501?text=${text}`, "_blank");
+
+            contactForm.reset();
+
+        });
+
+    }
 
 });
 

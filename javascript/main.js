@@ -4,6 +4,8 @@ let productsPerPage = 6;
 
 document.addEventListener("DOMContentLoaded", () => {
 
+    initFromUrl();
+
     displayProducts();
 
     setupCategoryFilters();
@@ -13,28 +15,31 @@ document.addEventListener("DOMContentLoaded", () => {
     setupLoadMore();
 });
 
+// ===========================================
+// INITIAL STATE FROM URL (?category=..., ?wishlist=on)
+// ===========================================
 
-document.addEventListener("DOMContentLoaded", () => {
+function initFromUrl() {
 
-    let currentCategory = "All";
+    const params = new URLSearchParams(window.location.search);
 
-    let currentSort = "newest";
+    const category = params.get("category");
 
-    displayProducts();
+    if (category) {
 
-    setupCategoryFilters();
+        currentCategory = category;
 
-    setupSorting();
+        const button = document.querySelector(`.shop-categories button[data-category="${category}"]`);
 
-});
+        if (button) {
 
-function updateProductCount(products) {
+            document.querySelectorAll(".shop-categories button").forEach(btn => btn.classList.remove("active"));
 
-    const productCount = document.getElementById("productCount");
+            button.classList.add("active");
 
-    if (!productCount) return;
+        }
 
-    productCount.textContent = `Showing ${products.length} Products`;
+    }
 
 }
 
@@ -50,20 +55,15 @@ function setupCategoryFilters() {
 
         button.addEventListener("click", () => {
 
-            // Remove active class
             buttons.forEach(btn => btn.classList.remove("active"));
 
-            // Add active class
             button.classList.add("active");
 
-            // Get selected category
-            const category = button.dataset.category;
+            currentCategory = button.dataset.category;
 
-          currentCategory = category;
+            productsPerPage = 6;
 
-          productsPerPage = 6;
-
-           displayProducts();
+            displayProducts();
         });
 
     });
@@ -85,7 +85,7 @@ function setupSorting() {
         currentSort = sortSelect.value;
 
         productsPerPage = 6;
-        
+
         displayProducts();
 
     });
@@ -102,11 +102,17 @@ function displayProducts() {
 
     filteredProducts = sortProducts(filteredProducts, currentSort);
 
+    if (window.filterByWishlist) filteredProducts = window.filterByWishlist(filteredProducts);
+
+    if (window.searchProducts) filteredProducts = window.searchProducts(filteredProducts);
+
     const visibleProducts = filteredProducts.slice(0, productsPerPage);
 
     renderProducts(visibleProducts, "shopContainer");
 
     setupProductLinks();
+
+    if (window.refreshWishlistIcons) refreshWishlistIcons();
 
     updateProductCount(filteredProducts);
 
@@ -114,7 +120,24 @@ function displayProducts() {
 
 }
 
-// toggle load more buttonn
+// ===========================================
+// PRODUCT COUNT
+// ===========================================
+
+function updateProductCount(products) {
+
+    const productCount = document.getElementById("productCount");
+
+    if (!productCount) return;
+
+    productCount.textContent = `Showing ${products.length} Products`;
+
+}
+
+// ===========================================
+// LOAD MORE
+// ===========================================
+
 function toggleLoadMoreButton(totalProducts) {
 
     const loadMoreBtn = document.getElementById("loadMoreBtn");
@@ -133,7 +156,6 @@ function toggleLoadMoreButton(totalProducts) {
 
 }
 
-// set up more loadd
 function setupLoadMore() {
 
     const loadMoreBtn = document.getElementById("loadMoreBtn");
@@ -149,5 +171,3 @@ function setupLoadMore() {
     });
 
 }
-
-

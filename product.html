@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shop | Deniac Collection</title>
-    <meta name="description" content="Shop handcrafted loafers, oxfords, boots and sneakers from Deniac Collection.">
+    <title>Product | Deniac Collection</title>
+    <meta name="description" content="Every Deniac shoe is handcrafted from premium leather with timeless elegance.">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -151,93 +151,23 @@
 
 <main>
 
-    <!-- Shop Hero -->
-    <section class="shop-hero">
+    <!-- Product Detail -->
 
-        <div class="shop-overlay"></div>
+    <section class="product-detail" id="productDetail"></section>
 
-        <div class="shop-content">
+    <!-- Related Products -->
 
-            <p class="shop-subtitle">
-                DENIAC COLLECTION
-            </p>
+    <section class="related-section">
 
-            <h1>
-                Handcrafted Footwear
-            </h1>
+        <div class="section-heading">
 
-            <p class="shop-description">
+            <span>YOU MAY ALSO LIKE</span>
 
-                Explore handcrafted footwear designed with precision,
-                premium leather and timeless elegance.
-
-            </p>
+            <h2>Complete The Look</h2>
 
         </div>
 
-    </section>
-
-    <!-- Shop Toolbar -->
-
-    <section class="shop-toolbar">
-
-        <div class="shop-categories">
-
-            <button class="active" data-category="All">All</button>
-
-            <button data-category="Loafers">Loafers</button>
-
-            <button data-category="Oxford">Oxfords</button>
-
-            <button data-category="Boots">Boots</button>
-
-            <button data-category="Sneakers">Sneakers</button>
-
-        </div>
-
-        <div class="shop-tools">
-
-            <p id="productCount">
-
-                Showing 0 Products
-
-            </p>
-
-            <select id="sortProducts">
-
-                <option value="newest">Newest</option>
-
-                <option value="low">Price: Low to High</option>
-
-                <option value="high">Price: High to Low</option>
-
-                <option value="name">A - Z</option>
-
-            </select>
-
-        </div>
-
-    </section>
-
-    <!-- Products -->
-
-    <section class="shop-products" id="shop-products">
-
-        <div class="products-grid" id="shopContainer">
-
-         </div>
-
-    </section>
-
-    <!-- Load More -->
-
-    <section class="load-more">
-
-        <button id="loadMoreBtn">
-
-            Load More
-
-        </button>
+        <div class="products-grid" id="relatedContainer"></div>
 
     </section>
 
@@ -421,8 +351,7 @@
 <script src="./javascript/product.js"></script>
 <script src="./javascript/carts.js"></script>
 <script src="./javascript/wishlist.js"></script>
-<script src="./javascript/search.js"></script>
-<script src="./javascript/main.js"></script>
+<script src="./javascript/detail.js"></script>
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 
 <script>
@@ -433,7 +362,6 @@ AOS.init({
     offset: 100
 });
 
-// newsletter
 document.addEventListener("DOMContentLoaded", () => {
 
     const newsletterForm = document.getElementById("newsletterForm");

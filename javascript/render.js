@@ -4,6 +4,12 @@
 
 function createProductCard(product) {
 
+    const price = product.oldPrice
+
+        ? `<span class="old-price">₦${product.oldPrice.toLocaleString()}</span>`
+
+        : "";
+
     return `
 
         <article class="product-card" data-id="${product.id}">
@@ -12,7 +18,7 @@ function createProductCard(product) {
 
                 <a href="product.html" class="product-link" data-id="${product.id}">
 
-                <img src="${product.image}" alt="${product.name}">
+                <img src="${product.image}" alt="${product.name}" loading="lazy">
 
                 </a>
 
@@ -22,6 +28,15 @@ function createProductCard(product) {
 
                 </span>
 
+                <button
+                    class="wishlist-btn"
+                    data-id="${product.id}"
+                    aria-label="Add to wishlist">
+
+                    <i class="fa-regular fa-heart"></i>
+
+                </button>
+
             </div>
 
             <div class="product-info">
@@ -30,16 +45,16 @@ function createProductCard(product) {
                  <a href="product.html"
                  class="product-link"
                 data-id="${product.id}">
-                
+
                 ${product.name}
 
                 </a>
-                
+
                 </h3>
 
                 <p class="price">
 
-                    ₦${product.price.toLocaleString()}
+                    ₦${product.price.toLocaleString()} ${price}
 
                 </p>
 
@@ -77,8 +92,3 @@ function renderProducts(products, containerId) {
     });
 
 }
-
-renderProducts({
-    products: allProducts,
-    containerId: "shopContainer"
-});

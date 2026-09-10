@@ -1,130 +1,103 @@
 const hamburger = document.querySelector(".hamburger");
 const navLinks = document.querySelector(".nav-links");
-const nav = document.querySelector("nav");
-const counters = document.querySelectorAll(".counter");
 const navbar = document.querySelector(".navbar");
+const counters = document.querySelectorAll(".counter");
 const reveals = document.querySelectorAll(".reveal");
-const logo = document.getElementById("logo");
-const cart = document.querySelector(".nav-btn");
-
-logo.addEventListener("click", function() {
-    window.location.href = "index.html";
-});
-
-cart.addEventListener("click", function() {
-    window.location.href = "shop.html";
-});
-
-// reveal animation javascript
-const observer = new IntersectionObserver((entries)=>{
-
-    entries.forEach(entry=>{
-
-        if(entry.isIntersecting){
-
-            entry.target.classList.add("active");
-
-        }
-
-    });
-
-},{
-    threshold:.2
-});
-
-reveals.forEach(section=>{
-
-    observer.observe(section);
-
-});
-
 
 // Hamburger Menu
-hamburger.addEventListener("click",()=>{
+hamburger.addEventListener("click", () => {
 
     navLinks.classList.toggle("active");
 
 });
 
+// close mobile menu after clicking a link
+document.querySelectorAll(".nav-links a").forEach(link => {
+    link.addEventListener("click", () => {
+        navLinks.classList.remove("active");
+    });
+});
 
-// add eventlistener to window scroll event to add or remove the "scrolled" class from the navbar based on the scroll position. If the user has scrolled more than 80 pixels down, the "scrolled" class is added to the navbar, which can be used to change its appearance (like background color, height, etc.). If the user scrolls back up above 80 pixels, the "scrolled" class is removed.
-window.addEventListener("scroll",()=>{
-
-    if(window.scrollY>80){
-
+// scrolled navbar
+window.addEventListener("scroll", () => {
+    if (window.scrollY > 80) {
         navbar.classList.add("scrolled");
-
-    }else{
-
+    } else {
         navbar.classList.remove("scrolled");
-
     }
+});
+
+// reveal animation
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("active");
+        }
+    });
+}, {
+    threshold: .2
+});
+
+reveals.forEach(section => {
+    observer.observe(section);
+});
+
+// index page only ---------------------------------------------------------
+
+// hero entrance animation
+window.addEventListener("load", () => {
+
+    const items = [
+        ".hero-tag",
+        ".hero-content h1",
+        ".hero-content p",
+        ".hero-buttons",
+        ".hero-features",
+        ".hero-image"
+    ];
+
+    items.forEach((item, index) => {
+
+        const el = document.querySelector(item);
+
+        if (!el) return;
+
+        el.style.animation = `fadeUp .8s ease forwards ${index * .2}s`;
+
+    });
 
 });
 
-// javascript for hero section animation
-window.addEventListener("load",()=>{
-
-const items=[
-
-".hero-tag",
-
-".hero-content h1",
-
-".hero-content p",
-
-".hero-buttons",
-
-".hero-features",
-
-".hero-image"
-
-];
-
-items.forEach((item,index)=>{
-
-document.querySelector(item).style.animation=
-
-`fadeUp .8s ease forwards ${index*.2}s`;
-
-});
-
-});
-
-// mouse parallax effect for hero section
+// hero mouse parallax
 const heroImage = document.querySelector(".hero-image");
 
-document.addEventListener("mousemove",(e)=>{
+if (heroImage) {
 
-    const x = (window.innerWidth / 2 - e.clientX) / 40;
-    const y = (window.innerHeight / 2 - e.clientY) / 40;
+    document.addEventListener("mousemove", (e) => {
 
-    heroImage.style.transform =
-    `translate(${x}px, ${y}px)`;
+        const x = (window.innerWidth / 2 - e.clientX) / 40;
+        const y = (window.innerHeight / 2 - e.clientY) / 40;
 
-});
+        heroImage.style.transform = `translate(${x}px, ${y}px)`;
 
-// javascript for counter animation
+    });
+
+}
+
+// counter animation
 counters.forEach(counter => {
 
     const update = () => {
 
         const target = +counter.dataset.target;
-
         const current = +counter.innerText;
-
         const increment = target / 100;
 
-        if(current < target){
-
+        if (current < target) {
             counter.innerText = Math.ceil(current + increment);
-
-            setTimeout(update,20);
-
-        }else{
-
+            setTimeout(update, 20);
+        } else {
             counter.innerText = target;
-
         }
 
     };
@@ -133,110 +106,90 @@ counters.forEach(counter => {
 
 });
 
-// javascript for testimonial slider
+// testimonial slider
 const track = document.querySelector(".testimonial-track");
 const slides = document.querySelectorAll(".testimonial");
-
 const dots = document.querySelectorAll(".dot");
-
 const next = document.getElementById("next");
 const prev = document.getElementById("prev");
 
 let current = 0;
 
-function updateSlider(){
+function updateSlider() {
 
-    track.style.transform =
-    `translateX(-${current*100}%)`;
+    if (!track || !slides.length) return;
 
-    dots.forEach(dot=>dot.classList.remove("active"));
+    track.style.transform = `translateX(-${current * 100}%)`;
 
-    dots[current].classList.add("active");
+    dots.forEach(dot => dot.classList.remove("active"));
+
+    if (dots[current]) dots[current].classList.add("active");
 
 }
 
-next.addEventListener("click",()=>{
+if (next && slides.length) {
 
-    current++;
+    next.addEventListener("click", () => {
+        current++;
+        if (current >= slides.length) current = 0;
+        updateSlider();
+    });
 
-    if(current>=slides.length){
+}
 
-        current=0;
+if (prev && slides.length) {
 
-    }
+    prev.addEventListener("click", () => {
+        current--;
+        if (current < 0) current = slides.length - 1;
+        updateSlider();
+    });
 
-    updateSlider();
+}
 
-});
+if (slides.length > 1) {
 
-prev.addEventListener("click",()=>{
+    setInterval(() => {
+        current++;
+        if (current >= slides.length) current = 0;
+        updateSlider();
+    }, 5000);
 
-    current--;
+}
 
-    if(current<0){
+// cart drawer (all pages) -------------------------------------------------
 
-        current=slides.length-1;
-
-    }
-
-    updateSlider();
-
-});
-
-// javascript for auto sliding testimonial
-setInterval(()=>{
-
-    current++;
-
-    if(current>=slides.length){
-
-        current=0;
-
-    }
-
-    updateSlider();
-
-},5000);
-
-
-// adding to cart javascript
-const cartBtn = document.getElementById("cartBtn");
+const cartOpenBtns = document.querySelectorAll(".cart-open");
 const cartDrawer = document.getElementById("cartDrawer");
 const cartOverlay = document.getElementById("cartOverlay");
 const closeCart = document.getElementById("closeCart");
 
-function openCart(){
+function openCart() {
+
+    if (!cartDrawer) return;
 
     cartDrawer.classList.add("active");
-
     cartOverlay.classList.add("active");
-
-    document.body.style.overflow="hidden";
+    document.body.style.overflow = "hidden";
 
 }
 
-function closeCartDrawer(){
+function closeCartDrawer() {
+
+    if (!cartDrawer) return;
 
     cartDrawer.classList.remove("active");
-
     cartOverlay.classList.remove("active");
-
-    document.body.style.overflow="";
+    document.body.style.overflow = "";
 
 }
 
-cartBtn.addEventListener("click",openCart);
+cartOpenBtns.forEach((btn) => btn.addEventListener("click", openCart));
+if (closeCart) closeCart.addEventListener("click", closeCartDrawer);
+if (cartOverlay) cartOverlay.addEventListener("click", closeCartDrawer);
 
-closeCart.addEventListener("click",closeCartDrawer);
-
-cartOverlay.addEventListener("click",closeCartDrawer);
-
-document.addEventListener("keydown",(e)=>{
-
-    if(e.key==="Escape"){
-
+document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && cartDrawer && cartDrawer.classList.contains("active")) {
         closeCartDrawer();
-
     }
-
 });
